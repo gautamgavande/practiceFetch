@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="apifetch.js"></script>
+</head>
+<body>
+    <h1>Emplyo data</h1>
+    <div id="iddd"></div>
+    <button onclick="getapidata()">Getdata</button>
+    
+    <script>
+          async function  getapidata(){
+            let html = ``;
+            let result= await fetch("http://localhost:3000/emp")
+            let data= await result.json()
+            // console.write(data)
+             data.map((item,index)=>{
+            // console.log(item,index)
+            //  console.log(index,item.name,item.age)
+            //console.log(index,item.name,item.age)
+            html += item // `<p>${item.name}</p> <p>${item.age}</p>`
+            // document.write(html)
+            document.getElementById("iddd").innerHTML=html;
+})
+            
+}
+    </script>
+</body>
+</html>
